@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int solution(int bridge_length, int weight, vector<int> truck_weights) {
+int solution(int bridge_length, int weight, vector<int> truck_weights) {   // !!!! 가장 효율적인 방법 !!!!
     int answer = 0;
     queue<int> q;
     int time = 0, idx = 0, cur_cnt = 0, cur_w = 0;
