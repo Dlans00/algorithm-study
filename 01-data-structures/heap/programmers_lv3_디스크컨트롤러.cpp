@@ -33,7 +33,7 @@ int solution(vector<vector<int>> jobs) {
     while(chk<jobs.size()) {
         while(idx<jobs.size()&&cur_t>=arr[idx][0]) { // 요청시간이 현재시각보다 이르고 전체 작업 수 끝날 때까지
             pq.push({arr[idx][1], arr[idx][0], arr[idx][2]}); // 힙에 삽입
-            idx++;
+            idx++; // pq 힙에서 몇개를 푸시했는지 체크
         }
 
         if(!pq.empty()) { // 매번 힙이 비어있지 않으면 작업 하나 소모
@@ -41,11 +41,11 @@ int solution(vector<vector<int>> jobs) {
                 answer+=cur_t-pq.top().job_reqtime;
 
                 pq.pop(); // 해당 작업 힙에서 제외
-                chk++;
+                chk++; // 완료한 작업 갯수 카운트
         }
-        else cur_t++;
+        else cur_t++; // 비어있으면 시작할 작업이 없으니 시간만 1초 추가
 
     }
-    answer/=jobs.size();
+    answer/=jobs.size(); // 평균 계산
     return answer;
 }
